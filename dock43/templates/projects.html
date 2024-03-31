@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Dock - Projects{% endblock %}
+
+{% block category %}Projects{% endblock %}
+
+{% block content %}
+    <div class="project-link">
+        <ul>
+            <li>
+                <a href="{{ url_for('static', filename='projects/project1.pdf') }}">US army Joint Vision 2020</a>
+            </li>
+            <li>
+                <a href="{{ url_for('static', filename='projects/cheet.html') }}">Rspec cheat sheet</a>
+            </li>
+            <li>
+                <a href="{{ url_for('static', filename='projects/cheet-combo.html') }}">Combo</a>
+            </li>
+            <li>
+                <a href="{{ url_for('static', filename='projects/war_economy.html') }}">war_economy_tinfoil</a>
+                <!-- todo: Fix links in meditation manual -->
+            </li>
+            <li>
+                <a href="{{ url_for('static', filename='projects/buddha_backup/Meditaion_Manuals.html') }}">Meditation Theravada Tradition Manual</a>
+            </li>
+            <li>
+                <a href="{{ url_for('static', filename='projects/QA_Mykyta_Tkachuk-converted.html') }}">CV</a>
+            </li>
+        </ul>
+    </div>
+    <!-- Add more project links as needed -->
+{% endblock %}

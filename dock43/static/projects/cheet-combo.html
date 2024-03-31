@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testing Cheat Sheets</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      max-width: 800px;
+      margin: 20px auto;
+      line-height: 1.6;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+    h2 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Testing Cheat Sheets</h1>
+
+<section>
+  <h2>RSpec Cheat Sheet</h2>
+  <h3>Basic Structure</h3>
+  <pre><code>RSpec.configure do |config|
+  # Configuration options
+end
+
+RSpec.describe 'Example' do
+  # Examples go here
+end</code></pre>
+
+  <h3>Assertions and Matchers</h3>
+  <pre><code>expect(actual_value).to eq(expected_value)
+expect(actual_value).to be_truthy
+expect(actual_value).to be_instance_of(expected_class)
+
+expect(array).to include(element)
+expect(string).to match(/pattern/)
+expect(hash).to have_key(:key)
+
+expect(number).to be > 5
+expect(number).to be_within(0.5).of(expected_value)
+
+expect(actual_value).not_to eq(unexpected_value)</code></pre>
+
+  <!-- ... (other RSpec content) -->
+</section>
+
+<section>
+  <h2>Capybara Cheat Sheet</h2>
+  <h3>Basic Actions</h3>
+  <pre><code>visit('/path')
+click_on('Link Text')
+fill_in('Field Name', with: 'Text')
+choose('Radio Button Label')
+check('Checkbox Label')
+uncheck('Checkbox Label')
+select('Option Text', from: 'Select Box')</code></pre>
+
+  <h3>Assertions</h3>
+  <pre><code>expect(page).to have_content('Text')
+expect(page).to have_selector('CSS Selector')
+expect(page).to have_field('Field Name')
+expect(page).to have_link('Link Text')
+expect(page).to have_button('Button Text')</code></pre>
+
+  <!-- ... (other Capybara content) -->
+</section>
+
+<section>
+  <h2>XPath Cheat Sheet</h2>
+  <h3>Basic XPath Expressions</h3>
+  <pre><code>//div[@class='example']
+//*[@id='elementId']
+//input[@name='username']
+//a[text()='Link Text']
+//tag[@attribute='value']</code></pre>
+
+  <h3>Predicates</h3>
+  <pre><code>//div[@class='example'][@id='exampleId']
+//input[@type='text' and @name='username']
+//ul/li[position()=1]
+//p[@class='paragraph'][last()]</code></pre>
+
+  <!-- ... (other XPath content) -->
+</section>
+
+<section>
+  <h2>Rails Unit Testing Cheat Sheet</h2>
+  <h3>Basic Test Structure</h3>
+  <pre><code>class ExampleTest &lt; ActiveSupport::TestCase
+  # Test methods go here
+end</code></pre>
+
+  <h3>Assertions</h3>
+  <pre><code>assert_equal(expected, actual)
+assert_not_nil(value)
+assert_instance_of(expected_class, instance)
+assert_difference('Model.count', 1) { # Code that changes the count }</code></pre>
+
+  <!-- ... (other Rails unit testing content) -->
+</section>
+
+<h1>Ruby on Rails Testing Cheat Sheet</h1>
+
+<section>
+  <h2>Basic Structure</h2>
+  <pre><code>rails generate model MyModel
+rails generate controller MyController</code></pre>
+
+  <h2>Test File Locations</h2>
+  <pre><code>test/models/my_model_test.rb
+test/controllers/my_controller_test.rb</code></pre>
+
+  <h2>Writing Tests</h2>
+  <pre><code>class MyModelTest < ActiveSupport::TestCase
+  test "should be valid" do
+    my_model = MyModel.new
+    assert my_model.valid?
+  end
+end</code></pre>
+
+  <h2>Running Tests</h2>
+  <pre><code>rails test</code></pre>
+
+  <h2>Assertions</h2>
+  <pre><code>assert_equal expected_value, actual_value
+assert_difference 'Model.count', 1 do
+  # Code that adds a record to the model
+end
+assert_redirected_to controller_path</code></pre>
+</section>
+
+<section>
+  <h2>Playwright Cheat Sheet</h2>
+  <h3>Basic Actions</h3>
+  <pre><code>const { chromium } = require('playwright');
+(async () => {
+  const browser = await chromium.launch();
+  const page = await browser.newPage();
+  await page.goto('https://example.com');
+  await page.click('a');
+  await browser.close();
+})();</code></pre>
+
+  <h3>Assertions</h3>
+  <pre><code>expect(await page.title()).toBe('Expected Title');
+expect(await page.isVisible('selector')).toBeTruthy();
+expect(await page.getAttribute('input', 'value')).toBe('Expected Value');</code></pre>
+
+  <!-- ... (other Playwright content) -->
+</section>
+
+</body>
+</html>

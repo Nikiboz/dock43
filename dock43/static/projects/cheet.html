@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSpec Cheat Sheet</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      max-width: 800px;
+      margin: 20px auto;
+      line-height: 1.6;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+  </style>
+</head>
+<body>
+
+<h1>RSpec Cheat Sheet</h1>
+
+<h2>Basic Structure</h2>
+<pre><code>RSpec.configure do |config|
+  # Configuration options
+end
+
+RSpec.describe 'Example' do
+  # Examples go here
+end</code></pre>
+
+<h2>Assertions and Matchers</h2>
+<pre><code>expect(actual_value).to eq(expected_value)
+expect(actual_value).to be_truthy
+expect(actual_value).to be_instance_of(expected_class)
+
+expect(array).to include(element)
+expect(string).to match(/pattern/)
+expect(hash).to have_key(:key)
+
+expect(number).to be > 5
+expect(number).to be_within(0.5).of(expected_value)
+
+expect(actual_value).not_to eq(unexpected_value)</code></pre>
+
+<h2>Hooks</h2>
+<pre><code>before(:each) do
+  # Setup code
+end
+
+after(:each) do
+  # Teardown code
+end</code></pre>
+
+<h2>Contexts and Descriptions</h2>
+<pre><code>context 'when condition is met' do
+  it 'does something' do
+    # Test code
+  end
+end
+
+describe 'Example' do
+  it 'has a specific behavior' do
+    # Test code
+  end
+end</code></pre>
+
+<h2>Mocking and Stubbing</h2>
+<pre><code>allow(object).to receive(:method).and_return(value)
+allow(Class).to receive(:new).and_return(instance)</code></pre>
+
+<h2>Shared Examples</h2>
+<pre><code># Define in spec/support/shared_examples.rb
+RSpec.shared_examples 'a shared example' do
+  it 'has a behavior' do
+    # Test code
+  end
+end
+
+# Use in other specs
+describe 'Example' do
+  it_behaves_like 'a shared example'
+end</code></pre>
+
+<h2>Running Tests</h2>
+<pre><code># Run all specs
+rspec
+
+# Run a specific spec file
+rspec path/to/spec_file.rb
+
+# Run a specific example in a spec file
+rspec path/to/spec_file.rb:line_number</code></pre>
+
+
+<h1>Capybara Cheat Sheet</h1>
+
+<h2>Basic Actions</h2>
+<pre><code>visit('/path')
+click_on('Link Text')
+fill_in('Field Name', with: 'Text')
+choose('Radio Button Label')
+check('Checkbox Label')
+uncheck('Checkbox Label')
+select('Option Text', from: 'Select Box')</code></pre>
+
+<h2>Assertions</h2>
+<pre><code>expect(page).to have_content('Text')
+expect(page).to have_selector('CSS Selector')
+expect(page).to have_field('Field Name')
+expect(page).to have_link('Link Text')
+expect(page).to have_button('Button Text')</code></pre>
+
+<h2>Interacting with Forms</h2>
+<pre><code>within('form') do
+  fill_in 'Username', with: 'user123'
+  click_button 'Submit'
+end</code></pre>
+
+<h2>Navigation</h2>
+<pre><code>click_link('Link Text')
+click_button('Button Text')
+click_on('Link or Button Text')
+go_back
+go_forward
+visit('/other_page')</code></pre>
+
+<h2>Working with Windows and Frames</h2>
+<pre><code>within_window('Window Name') do
+  # Code to interact with elements in the window
+end
+
+within_frame('Frame Name') do
+  # Code to interact with elements in the frame
+end</code></pre>
+
+<h2>Asynchronous Actions</h2>
+<pre><code>expect(page).to have_content('Text', wait: 10)
+expect(page).to have_no_content('Text', wait: 5)
+expect(page).to have_selector('CSS Selector', wait: 10)</code></pre>
+
+<h2>Matchers for Forms</h2>
+<pre><code>expect(page).to have_current_path('/expected_path')
+expect(page).to have_button('Submit').disabled
+expect(page).to have_select('Select Box').selected_option
+expect(page).to have_field('Username').with_value('user123')</code></pre>
+
+<h2>Scoping and Nesting</h2>
+<pre><code>within('.container') do
+  # Code to interact with elements within the container
+end
+
+within('form') do
+  fill_in 'Username', with: 'user123'
+  within_fieldset('Personal Info') do
+    # Code to interact with elements within the fieldset
+  end
+end</code></pre>
+
+
+</body>
+</html>

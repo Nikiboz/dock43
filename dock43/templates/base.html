@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='js/clicky-menus.js') }}"></script>
+    
+    <title>{% block title %}DOCK{% endblock %}</title>
+</head> 
+<body>
+   <div> 
+        <img src="/static/BrujaUA.png" class="center-logo" alt="">
+    </div>
+        
+   
+    </div>
+    <div id="category-header">
+        <h1>{% block category %}{% endblock %}</h1>
+    </div>
+   
+    <div id="wrapper">
+      
+        <div class="mean-toggle">
+            <nav id="site-navigation" class="site-navigation" aria-label="Clickable">
+                <ul class="main-menu clicky-menu no-js">
+                    <li>
+                        <a href="{{ url_for('index') }}">Blog</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('cv') }}">CV</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('projects') }}">Projects</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('photos') }}">Photos</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    
+ 
+    
+ <script
+ src="https://code.jquery.com/jquery-3.4.1.js"
+ integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+ crossorigin="anonymous">
+</script>
+ <script type="text/javascript">
+     $(document).ready(function()
+     {
+         $('.mean-toggle').click(function()
+       {
+             $('.mean-toggle').toggleClass('active')
+             $('nav').toggleClass('active')
+       })
+     })
+   </script>
+</body>
+</html>

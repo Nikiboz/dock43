@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- saved from url=(0117)https://widgets.wp.com/likes/master.html?ver=202402081217#ver=202402081217&origin=https://suvacobhikkhu.wordpress.com -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<script type="text/html" id="admin-bar-likes">
+	<div id="wpadminbar" <% if ( isRtl ) { %> class="rtl" <% } %> >
+		<div class="quicklinks">
+			<ul><li id="wp-admin-bar-wpl-like">
+				<a class="ab-item like" href="#"><%= label %></a>
+			</li></ul>
+		</div>
+	</div>
+</script>
+
+<script type="text/html" id="post-likes">
+	<div class="sd-content wpl-likebox">
+		<% if ( canReblog && canUserReblog ) { %>
+		<div class="wpl-button reblog">
+			<a href="#" title='<%- reblog_feedback_no_html %>' class='<%- reblog_css_state %> sd-button' rel='nofollow'>
+				<span><%= reblog_label %></span>
+			</a>
+		</div>
+		<% } %>
+		<% if ( canLike ) { %>
+		<div class="wpl-button <%- css_state %>">
+			<a href="#" title='<%- feedback_no_html %>' class='<%- css_state %> sd-button' rel='nofollow'>
+				<span><%= label %></span>
+			</a>
+		</div>
+
+		<% if ( hasLikes ) { %>
+		<ul class="wpl-avatars sd-like-gravatars">
+			<% likers.forEach( function( item, key ) { %>
+				<li class='<%- item.css_class %>' data-liker-id="<%- item.ID %>"><a href="<%= item.profile_URL %>" title="<%- item.name %>" class="wpl-liker" rel="nofollow" target="_parent">
+					<img src='<%= item.avatar_URL %>' class='avatar avatar-30' alt='<%- item.name %>' width='30' height='30' />
+				</a></li>
+			<% }); %>
+		</ul>
+		<% } %>
+		<div class="wpl-count sd-like-count">
+			<%= feedback %>
+		</div>
+		<% } %>
+	</div>
+</script>
+
+<script type="text/html" id="slim-likes">
+	<div class="sd-content wpl-likebox wpl-slim-likebox">
+		<div class="wpl-button <%- css_state %>">
+			<a href="#" title='<%- feedback_no_html %>' class='<%- css_state %> sd-button' rel='nofollow'>
+				<span><%= label %></span>
+			</a>
+		</div>
+	</div>
+</script>
+
+<script type="text/html" id="comment-likes">
+	<div class="wpl-likebox">
+		<div id="comment-like" class="comment-likes <%- css_state %>">
+			<a href="#" class="comment-like-link" rel="nofollow"><%= label %></a>
+		</div>
+	</div>
+</script>
+
+<script type="text/javascript" src="./rlt-proxy.js"></script>
+<script type="text/javascript" src="./saved_resource"></script>
+<script type="text/javascript">
+	// compute origin from URL argument
+	var parentOrigin;
+	if (window.location.hash) {
+		var params = (window.location.hash.substr(1)).split("&");
+
+		for (i = 0; i < params.length; i++) {
+			var a = params[i].split("=");
+			// Now every parameter from the hash is beind handled this way
+			if (a[0] == "origin") {
+				parentOrigin = a[1];
+			}
+		}
+	}
+	rltInitialize( { rlt: null, iframeOrigins: ['https://public-api.wordpress.com'], parentOrigin: parentOrigin } );
+</script>
+</head>
+<body data-new-gr-c-s-check-loaded="14.1160.0" data-gr-ext-installed="">
+
+<iframe src="./saved_resource.html" style="display: none;"></iframe></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
