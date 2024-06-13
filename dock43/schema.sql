@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS post;
+DROP TABLE IF EXISTS gallery;
 
 CREATE TABLE user (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -16,8 +17,8 @@ CREATE TABLE post (
   FOREIGN KEY (author_id) REFERENCES user (id)
 );
 
-CREATE TABLE post (
+CREATE TABLE gallery (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   photo_link TEXT NOT NULL,
-  photo_text_body TEXT NOT NULL,
+  photo_text_body TEXT NOT NULL
 );

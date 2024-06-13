@@ -1,0 +1,28 @@
+HTML
+{% extends 'base.html' %}
+
+{% block title %}New Post{% endblock %}
+
+{% block content %}
+  {% if form.errors %}
+    <ul class="errors">
+      {% for error in form.errors %}
+        <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <form method="post">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      <label for="title" class="form-label">Title</label>
+      <input name="title" id="title" value="{{ request.form['title'] }}" required placeholder="Enter post title" class="form-input">
+    </div>
+    <div class="form-group">
+      <label for="body" class="form-label">Body</label>
+      <textarea name="body" id="body" placeholder="Write your post content">{{ request.form['body'] }}</textarea>
+      <div class="form-textarea">  </div>
+    </div>
+    <input type="submit" value="Save" class="btn btn-primary">
+  </form>
+{% endblock %}

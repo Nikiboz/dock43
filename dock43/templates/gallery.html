@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Dock - Photos{% endblock %}
+{% block category %}Photos{% endblock %}
+{% block content %}
+{% if photos %}
+    <!-- Render gallery photos here -->
+    {% for photo in photos %}
+        <div>
+            <img src="{{ photo.photo_link }}" alt="{{ photo.photo_text_body }}">
+            <p>{{ photo.photo_text_body }}</p>
+        </div>
+    {% endfor %}
+{% else %}
+    <!-- Display a message if the gallery is empty -->
+    <p>No photos available.</p>
+{% endif %}
+<div>HandPick Of the Week</div>
+<div id="carousel" class="carousel">
+    {% for photo in photos %}
+        <!-- Remove width and height parameters from the image URL -->
+        {% set photo_link = photo.photo_link | replace('w1920-h1080', '') %}
+        <img src="{{ photo_link }}" alt="{{ photo.photo_text_body }}" class="preview">
+    {% endfor %}
+</div>
+<div class="photo-details">
+    <img id="detailed-photo" src="" alt="">
+    <div id="photo-description"></div>
+</div>
+<style>
+    .preview {
+        max-width: 30%; /* Adjust this value as needed to fit three images in the carousel */
+        height: auto; /* Maintain aspect ratio */
+        margin: 0 auto; /* Center the images horizontally */
+        display: block; /* Ensure the images are displayed as blocks */
+    }
+</style>
+<script src="/static/js/gallery.js"></script> <!-- Include the gallery.js script -->
+{% endblock %}

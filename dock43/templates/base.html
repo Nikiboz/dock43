@@ -9,11 +9,10 @@
     <title>{% block title %}DOCK{% endblock %}</title>
 </head> 
 <body>
-   <div> 
-        <img src="/static/BrujaUA.png" class="center-logo" alt="">
+    <div style="display: flex; align-items: center;">
+        <img src="/static/LOGO.png" alt="" style="margin-left: 2px; margin-block: 2px; height: 200px;">
+        <h1 id="central-header">Welcome to Dock43</h1>
     </div>
-        
-   
     </div>
     <div id="category-header">
         <h1>{% block category %}{% endblock %}</h1>
@@ -34,7 +33,7 @@
                         <a href="{{ url_for('projects') }}">Projects</a>
                     </li>
                     <li>
-                        <a href="{{ url_for('photos') }}">Photos</a>
+                        <a href="{{ url_for('gallery.show_gallery') }}">Photos</a>
                     </li>
                 </ul>
             </nav>

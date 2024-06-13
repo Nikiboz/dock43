@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weaving Machine Animation</title>
+<style>
+  /* Keyframes for weaving animation */
+  @keyframes weave {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
+  }
+
+  /* Keyframes for shuttle movement */
+  @keyframes shuttle-move {
+    0%, 100% { left: 0; }
+    50% { left: calc(100% - 40px); } /* Shuttle width is 40px */
+  }
+
+  /* Container for weaving machine */
+  .weaving-container {
+    width: 100%;
+    height: 300px; /* Adjust height as needed */
+    background: transparent; /* Transparent background */
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Weaving machine base */
+  .weaving-base {
+    width: 180px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    background: #444; /* Base color */
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+  }
+
+  /* Weaving machine frame */
+  .weaving-frame {
+    width: 160px; /* Adjust width as needed */
+    height: 100px; /* Adjust height as needed */
+    background: #666; /* Frame color */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+  }
+
+  /* Weaving machine beam */
+  .weaving-beam {
+    width: 120px; /* Adjust width as needed */
+    height: 5px; /* Adjust height as needed */
+    background: #888; /* Beam color */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Shuttle (moving part) */
+  .shuttle {
+    width: 40px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    background: rgb(138, 125, 125); /* Shuttle color */
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    animation: shuttle-move 4s linear infinite alternate; /* Ping-pong-bounce animation */
+  }
+
+  /* Unweaved wool lines */
+  .wool-line {
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1; /* Ensure it's behind the shuttle */
+  }
+
+  /* Vertical lines */
+  .vertical-line {
+    width: 2px;
+    height: 100%;
+    background: #000000;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1; /* Ensure it's behind the shuttle */
+  }
+
+  /* Words */
+  .word {
+    opacity: 0; /* Hide words initially */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px; /* Adjust font size as needed */
+    color: rgb(254, 254, 254); /* Initial color of the words */
+    animation: show-word 2s linear infinite; /* Adjust duration as needed */
+  }
+
+  @keyframes show-word {
+  0%, 20% { opacity: 0; } /* Hide the word for the first 20% of the animation */
+  25%, 100% { opacity: 1; } /* Show the word for the remaining 80% of the animation */
+}
+
+  /* Different colors for words */
+  .word:nth-child(2n) {
+    color: blue;
+  }
+
+  .word:nth-child(3n) {
+    color: green;
+  }
+
+  .word:nth-child(4n) {
+    color: orange;
+  }
+
+  /* Grey background for final weave */
+  .final-weave {
+    width: 100%;
+    height: 100%;
+    background: #ccc; /* Grey background color */
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: weave 8s linear infinite; /* Same duration as weaving machine */
+    z-index: -2; /* Ensure it's behind the weaving machine and lines */
+  }
+</style>
+</head>
+<body>
+<div class="weaving-container">
+  <div class="weaving-base"></div>
+  <div class="weaving-frame"></div>
+  <div class="weaving-beam"></div>
+  <div class="shuttle"></div>
+  <div class="wool-line" style="top: 40%;"></div>
+  <div class="wool-line" style="top: 60%;"></div>
+  <div class="vertical-line" style="left: 30%;"></div>
+  <div class="vertical-line" style="left: 50%;"></div>
+  <div class="vertical-line" style="left: 70%;"></div>
+  <div class="word" style="animation-delay: 2s;">there</div>
+  <div class="word" style="animation-delay: 4s;">is</div>
+  <div class="word" style="animation-delay: 6s;">always</div>
+  <div class="word" style="animation-delay: 8s;">something</div>
+  <div class="final-weave"></div>
+</div>
+</body>
+</html>
