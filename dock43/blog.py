@@ -18,15 +18,11 @@ def index():
 def create():
     form = PostForm()
     if form.validate_on_submit():
-        # Conditional assignment for author
-        if current_user.is_authenticated:
-            print(f"Current user is authenticated: {current_user.username}")
-            new_post = Post(title=form.title.data, body=form.body.data)
-            new_post.author = current_user
-        else:
-            flash('You need to be logged in to create a post!', 'warning')
-            return redirect(url_for('login'))
-
+        new_post = Post(
+            title=form.title.data,
+            body=form.body.data,
+            author_id=current_user.id
+        )
         db.session.add(new_post)
         db.session.commit()
         flash('Post created!', 'success')
@@ -37,7 +33,7 @@ def create():
 @login_required
 def update(id):
     post = Post.query.get_or_404(id)
-    if post.author != current_user:
+    if post.author_id != current_user.id:
         abort(403)
     form = PostForm()
     if form.validate_on_submit():
