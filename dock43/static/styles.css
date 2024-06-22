@@ -13,10 +13,6 @@ body {
     box-sizing: border-box;
 }
 
-#wrapper {
-    display: flex;
-}
-
 #central-header {
     flex: 1;
     font-family: 'monotype';
@@ -29,21 +25,6 @@ body {
     display: flex; /* Use flexbox to center-align */
     justify-content: center; /* Center content horizontally */
     align-items: center; /* Center content vertically */
-}
-
-
-#content {
-    flex: 1;
-    background-color: rgba(24, 23, 23, 0.925); /* Set background color with opacity for readability */
-    padding: 20px; /* Add padding for spacing */
-    margin: 0 auto; /* Center content horizontally */
-    max-width: 1200px; /* Limit content width for readability */
-}
-
-@media (max-width: 768px) {
-    #content {
-        padding: 10px; /* Reduce padding for smaller screens */
-    }
 }
 
 header {
@@ -146,11 +127,91 @@ nav ul li a.active, nav ul li a:hover, .main-menu {
     background: url('static.gif') center center/cover no-repeat;
     font-weight: 700;
 }
+#wrapper {
+  display: flex;
+}
 
+/* General styling for the .mean-toggle */
+.mean-toggle {
+  margin-right: auto;
+  border: 3px transparent rgb(0, 255, 0);
+  background: url('static.gif');
+}
+
+/* Hide .mean-toggle on small screens */
+@media (max-width: 600px) {
+  .mean-toggle {
+      display: none;
+  }
+}
+
+
+To adjust the layout so that the content is positioned under the navigation after the screen is minimized, you can use CSS media queries to change the flex direction of the #wrapper to column. This way, the .mean-toggle and #content will be stacked vertically instead of being placed side by side.
+
+Updated CSS:
+css
+Copy code
+/* General styling for the wrapper */
+#wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of children */
+}
+
+/* General styling for the .mean-toggle */
 .mean-toggle {
     margin-right: auto;
     border: 3px transparent rgb(0, 255, 0);
     background: url('static.gif');
+}
+
+/* Styling for the content */
+#content {
+    flex: 1;
+    background-color: rgba(24, 23, 23, 0.925); /* Set background color with opacity for readability */
+    padding: 20px; /* Add padding for spacing */
+    margin: 0 auto; /* Center content horizontally */
+    max-width: 1200px; /* Limit content width for readability */
+}
+@media (max-width: 600px) {
+  .mean-toggle {
+      display: none;
+  }
+}
+
+/* Make .mean-toggle horizontal below the #category-header on small screens and adjust the layout */
+@media (max-width: 600px) {
+  #category-header + #noWidth + #wrapper {
+      flex-direction: column; /* Stack children vertically */
+  }
+
+  #category-header + #noWidth + #wrapper .mean-toggle {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border: none; /* Optional: adjust or remove border */
+  }
+
+  /* Adjust the layout of the .main-menu */
+  #category-header + #noWidth + #wrapper .mean-toggle .main-menu {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 0;
+      list-style: none;
+  }
+
+  /* Ensure the li elements are displayed horizontally */
+  #category-header + #noWidth + #wrapper .mean-toggle .main-menu li {
+      display: inline-block;
+      margin: 0 10px;
+  }
+
+  /* Ensure the content is below the navigation */
+  #category-header + #noWidth + #wrapper #content {
+      order: 1; /* Ensure content comes after the navigation */
+  }
 }
 
 /* Styles for photo gallery */

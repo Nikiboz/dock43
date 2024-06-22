@@ -10,31 +10,24 @@
 </head> 
 <body>
     <div class="glitch-container" style="display: flex; align-items: center;">
-        <img src="/static/LOGO.png" alt="" style="margin-left: 2px; margin-right: 20px;  margin-block: 2px; height: 200px;">
-            <h1  class="glitch" id="central-header">Welcome to Dock43</h1>
+        <img src="/static/LOGO.png" class="scanlines" alt="" style="margin-left: 2px; margin-right:20px;  margin-block: 2px; height: 200px;">
+        <div class="glitch scanlines glow" id="central-header">Welcome to Dock43</div>
     </div>
 
     <div id="category-header">
         <h1>{% block category %}{% endblock %}</h1>
     </div>
-   
+
+    <div id="noWidth"></div>
+
     <div id="wrapper">
-      
         <div class="mean-toggle">
             <nav id="site-navigation" class="site-navigation" aria-label="Clickable">
                 <ul class="main-menu clicky-menu no-js">
-                    <li>
-                        <a href="{{ url_for('index') }}">Blog</a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('cv') }}">CV</a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('projects') }}">Projects</a>
-                    </li>
-                    <li>
-                        <a href="{{ url_for('gallery.show_gallery') }}">Photos</a>
-                    </li>
+                    <li><a href="{{ url_for('index') }}">Blog</a></li>
+                    <li><a href="{{ url_for('cv') }}">CV</a></li>
+                    <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                    <li><a href="{{ url_for('gallery.show_gallery') }}">Photos</a></li>
                 </ul>
             </nav>
         </div>
@@ -43,22 +36,14 @@
         </div>
     </div>
     
- 
-    
- <script
- src="https://code.jquery.com/jquery-3.4.1.js"
- integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
- crossorigin="anonymous">
-</script>
- <script type="text/javascript">
-     $(document).ready(function()
-     {
-         $('.mean-toggle').click(function()
-       {
-             $('.mean-toggle').toggleClass('active')
-             $('nav').toggleClass('active')
-       })
-     })
-   </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.mean-toggle').click(function() {
+                $('.mean-toggle').toggleClass('active');
+                $('nav').toggleClass('active');
+            });
+        });
+    </script>
 </body>
 </html>
