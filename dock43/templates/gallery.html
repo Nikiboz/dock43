@@ -1,38 +1,43 @@
 {% extends 'base.html' %}
-{% block title %}Dock - Photos{% endblock %}
-{% block category %}Photos{% endblock %}
+{% block title %}Dock - Gallery{% endblock %}
+{% block category %}Gallery{% endblock %}
 {% block content %}
-{% if photos %}
-    <!-- Render gallery photos here -->
-    {% for photo in photos %}
-        <div>
-            <img src="{{ photo.photo_link }}" alt="{{ photo.photo_text_body }}">
-            <p>{{ photo.photo_text_body }}</p>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+<div class="photo-gallery">
+    <div class="carousel-container">
+        <button class="scroll-button left" id="scroll-left">&lt;&lt;</button>
+        <div id="carousel" class="carousel">
+            {% if photos %}
+                {% for photo in photos %}
+                    <img src="{{ photo.photo_link }}" alt="{{ photo.photo_text_body }}" class="preview">
+                {% endfor %}
+                
+            {% endif %}
         </div>
-    {% endfor %}
-{% else %}
-    <!-- Display a message if the gallery is empty -->
-    <p>No photos available.</p>
-{% endif %}
-<div>HandPick Of the Week</div>
-<div id="carousel" class="carousel">
-    {% for photo in photos %}
-        <!-- Remove width and height parameters from the image URL -->
-        {% set photo_link = photo.photo_link | replace('w1920-h1080', '') %}
-        <img src="{{ photo_link }}" alt="{{ photo.photo_text_body }}" class="preview">
-    {% endfor %}
+        <button class="scroll-button right" id="scroll-right">&gt;&gt;</button>
+    </div>
+    {% if not photos %}
+        <!-- Display a message if the gallery is empty -->
+        <div class="carousel-container">
+            <div id="carousel-static" class="carousel"> <!-- Added id="carousel-static" -->
+                <!-- Static images will be loaded here by JavaScript -->
+            </div>
+            <button class="scroll-button left" id="scroll-static-left">&lt;&lt;</button>
+            <button class="scroll-button right" id="scroll-static-right">&gt;&gt;</button>
+        </div>
+        <p style="text-decoration: wavy; text-decoration-line: overline; text-align: center; text-shadow: 2px;">...LOADED STATIC...THERE ARE MORE THERE -&gt;&gt;</p>
+    {% endif %}
 </div>
-<div class="photo-details">
-    <img id="detailed-photo" src="" alt="">
-    <div id="photo-description"></div>
+
+<div id="lightbox" class="lightbox">
+    <button class="lightbox-nav" id="prev-photo">&lt;</button>
+    <img id="lightbox-image" src="" alt="">
+    <button class="lightbox-nav" id="next-photo">&gt;</button>
+    <button class="close" id="close-lightbox">Close</button>
 </div>
-<style>
-    .preview {
-        max-width: 30%; /* Adjust this value as needed to fit three images in the carousel */
-        height: auto; /* Maintain aspect ratio */
-        margin: 0 auto; /* Center the images horizontally */
-        display: block; /* Ensure the images are displayed as blocks */
-    }
-</style>
-<script src="/static/js/gallery.js"></script> <!-- Include the gallery.js script -->
+
+<!-- Link to the external JavaScript file -->
+<script src="{{ url_for('static', filename='js/carousel.js') }}"></script>
+
 {% endblock %}

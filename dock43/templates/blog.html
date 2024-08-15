@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+{% block category %}UPDATES>>>{% endblock %}
 {% block header %}
   <h1>{% block title %}Posts{% endblock %}</h1>
   {% if current_user.is_authenticated %}

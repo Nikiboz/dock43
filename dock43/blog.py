@@ -2,15 +2,17 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for, abort
 from flask_login import login_required
 from flask_login import current_user
+from sqlalchemy import desc
 from .db import db
 from .models import Post
 from .forms import PostForm
+from . import blog
 
 blog = Blueprint('blog', __name__)
 
 @blog.route('/')
 def index():
-    posts = Post.query.all()
+    posts = Post.query.order_by(desc(Post.created)).all()
     return render_template('blog.html', posts=posts)
 
 @blog.route('/create', methods=['GET', 'POST'])

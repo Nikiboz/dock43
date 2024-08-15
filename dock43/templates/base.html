@@ -10,8 +10,9 @@
 </head> 
 <body>
     <div class="glitch-container" style="display: flex; align-items: center;">
-        <img src="/static/LOGO.png" class="scanlines" alt="" style="margin-left: 2px; margin-right:20px;  margin-block: 2px; height: 200px;">
-        <div class="glitch scanlines glow" id="central-header">Welcome to Dock43</div>
+        <img src="/static/LOGO.png" class="scanlines" class="glitch2" alt="" style="margin-left: 2px; margin-right:20px;  margin-block: 2px; height: 200px;">
+        <div class="scanlines" id="central-header">Dock 43</div>
+        <img src="/static/BrujaUA1.png" class="scanlines" class="glitch1" alt="" style="margin-left: 2px; margin-right:20px;  margin-block: 2px; height: 200px;">
     </div>
 
     <div id="category-header">
@@ -22,12 +23,12 @@
 
     <div id="wrapper">
         <div class="mean-toggle">
-            <nav id="site-navigation" class="site-navigation" aria-label="Clickable">
+            <nav class="side-nav" aria-label="Clickable">
                 <ul class="main-menu clicky-menu no-js">
                     <li><a href="{{ url_for('index') }}">Blog</a></li>
                     <li><a href="{{ url_for('cv') }}">CV</a></li>
                     <li><a href="{{ url_for('projects') }}">Projects</a></li>
-                    <li><a href="{{ url_for('gallery.show_gallery') }}">Photos</a></li>
+                    <li><a href="{{ url_for('gallery.show_gallery') }}">Gallery</a></li>
                 </ul>
             </nav>
         </div>

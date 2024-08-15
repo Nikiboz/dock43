@@ -13,129 +13,126 @@ body {
     box-sizing: border-box;
 }
 
-#central-header {
-    flex: 1;
-    font-family: 'monotype';
-    font-size: 93px;
-    background: transparent center repeat;
-    text-align: center;
-    color: transparent;
-    -webkit-text-stroke-width: 7px;
-    -webkit-text-stroke-color: rgb(255, 255, 255);
-    display: flex; /* Use flexbox to center-align */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
+/* Container styles */
+.container {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background: transparent;
+    border-radius: 10px;
 }
 
-header {
+
+/* Header content styles */
+.header-content {
     display: flex;
-    flex: 0;
-    justify-content: center;
     align-items: center;
-    margin: 20px auto;
-    margin-top: 20px auto;
+    gap: 20px;
+}
+
+.header-content img {
+    max-width: 19%;
+    height: auto;
+}
+
+h1, h2, h3, h4 {
+    margin: 0 0 10px;
+    padding: 0;
+    color: #030303;
+    text-shadow: 
+        -1px -1px 0 #ddd,  
+        1px -1px 0 #ddd,
+        -1px  1px 0 #ddd,
+        1px  1px 0 #ddd;
+}
+
+/* Section styles */
+.section {
+    margin-bottom: 20px;
+    width: 90%;
+}
+
+.section ul {
+    list-style-type: none;
+    padding: 0;
+    width: 90%;
+}
+
+.section ul li {
+    background: #1b1212;
+    margin-bottom: 10px;
     padding: 10px;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0,.2);
-    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
-.logo, .main-menu {
-    font-family: 'Junk Robo';
+/* Scrollable div styles */
+.scrollable-div {
+    border-width: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    width: 90%;
+    max-width: 100%;
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* Custom scrollbar styles */
+.scrollable-div::-webkit-scrollbar {
+    width: 30px;
+}
+
+.scrollable-div::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollable-div::-webkit-scrollbar-thumb {
+    background: #6a6666;
+    border-radius: 15px;
+    margin-right: 2px;
+    border-color: #030303;
+}
+
+.scrollable-div::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .scrollable-div {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .scrollable-div {
+        width: 100%;
+    }
+}
+
+/* Content wrapper styles */
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.content-item {
+  color: whitesmoke;
+    margin: 20px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background: transparent center center no-repeat;
-    text-align: center;
-    -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: rgb(0, 0, 0);
-}
-
-#category-header {
-    flex: 1;
-    font-family: 'Junk Robo';
-    background: transparent center repeat;
-    text-align: center;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgb(255, 255, 255);
-    display: flex; /* Use flexbox to center-align */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-}
-
-.logo {
-    line-height: 60px;
-    font-size: 36px;
-    color: #340f0f;
-    font-weight: 700;
-    text-decoration: tomato;
-    background: transparent url('bkgrnd.png') center center/cover no-repeat;
-}
-
-#projects-content {
-    display: block;
-    margin: 20px auto;
-    background-color: rgba(45, 44, 44, 0.2); /* Semitransparent grey background */
-    padding: 10px; /* Add padding for better readability */
-}
-
-
-#category-header {
-    display: flex; /* Display the  header inline */
-    vertical-align: middle;
-    font-family: "Courier New";
-    line-height: 60px;
-    font-size: 20px;
-    color: #700606;
-    font-weight: 700;
-    text-decoration: none;
-    padding: 0 20px;
-    background: center no-repeat; /* Set background to black with 0.8 opacity */
-    text-align: center;
-}
-
-nav {
-    vertical-align: middle;
-}
-
-nav ul {
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li a {
-    display: block;
-    margin: 10px 0;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #f8f8f8;
-    border-color: #700606;
-    text-underline-offset: 0.1;
-    transition: 0.5s;
-}
-
-nav ul li a.active, nav ul li a:hover, .main-menu {
-    font-family: "Courier New";
-    line-height: 60px;
-    font-size: 20px;
-    color: #020202;
-    border-radius: 0.1px;
-    background: url('static.gif') center center/cover no-repeat;
-    font-weight: 700;
-}
-#wrapper {
-  display: flex;
 }
 
 /* General styling for the .mean-toggle */
 .mean-toggle {
-  margin-right: auto;
-  border: 3px transparent rgb(0, 255, 0);
-  background: url('static.gif');
+    margin-right: auto;
+    border: 3px transparent rgb(0, 255, 0);
 }
 
 /* Hide .mean-toggle on small screens */
@@ -145,39 +142,24 @@ nav ul li a.active, nav ul li a:hover, .main-menu {
   }
 }
 
-
-To adjust the layout so that the content is positioned under the navigation after the screen is minimized, you can use CSS media queries to change the flex direction of the #wrapper to column. This way, the .mean-toggle and #content will be stacked vertically instead of being placed side by side.
-
-Updated CSS:
-css
-Copy code
 /* General styling for the wrapper */
 #wrapper {
     display: flex;
     flex-wrap: wrap; /* Allow wrapping of children */
 }
 
-/* General styling for the .mean-toggle */
-.mean-toggle {
-    margin-right: auto;
-    border: 3px transparent rgb(0, 255, 0);
-    background: url('static.gif');
-}
-
 /* Styling for the content */
 #content {
+  color: white;
     flex: 1;
     background-color: rgba(24, 23, 23, 0.925); /* Set background color with opacity for readability */
     padding: 20px; /* Add padding for spacing */
     margin: 0 auto; /* Center content horizontally */
     max-width: 1200px; /* Limit content width for readability */
 }
-@media (max-width: 600px) {
-  .mean-toggle {
-      display: none;
-  }
+#category-header {
+  text-align: center;
 }
-
 /* Make .mean-toggle horizontal below the #category-header on small screens and adjust the layout */
 @media (max-width: 600px) {
   #category-header + #noWidth + #wrapper {
@@ -214,70 +196,8 @@ Copy code
   }
 }
 
-/* Styles for photo gallery */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust the minimum width of each column as needed */
-    gap: 20px; /* Adjust the gap between grid items */
-}
-
-.photo {
-    position: relative;
-    width: 100%; /* Ensure each photo takes up 100% width of its container */
-    padding-bottom: 100%; /* Maintain aspect ratio (1:1) */
-}
-
-.photo img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensure the entire image is visible while maintaining aspect ratio */
-    cursor: pointer; /* Add cursor pointer to indicate clickable */
-}
-
-.photo-text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    color: white;
-    text-align: center;
-    padding: 5px;
-    box-sizing: border-box;
-}
-
-/* Style the lightbox */
-#lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 999;
-}
-
-#lightbox-img {
-    display: block;
-    margin: auto;
-    max-width: 90%;
-    max-height: 90%;
-    cursor: pointer; /* Add cursor pointer to indicate clickable */
-}
-
-#close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 40px;
-    color: white;
-    cursor: pointer; /* Add cursor pointer to indicate clickable */
-}
-
-  .glitch-container {
-    
+/* Glitch effect */
+.glitch-container {
     display: flex;
     align-items: center;
     flex: 1;
@@ -286,144 +206,269 @@ Copy code
     background: transparent center repeat;
     text-align: center;
     color: transparent;
-    -webkit-text-stroke-width: 7px;
-    -webkit-text-stroke-color: rgb(0, 0, 0);
-    display: flex; /* Use flexbox to center-align */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-  }
-  
-  .glitch {
-    color: rgb(155, 0, 0);
+    -webkit-text-stroke-width: 4px;
+    -webkit-text-stroke-color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+}
+
+.glitch {
+    color: rgb(255, 255, 255);
     position: relative;
     font-size: 9vw;
-    // margin: 70px 200px;
     animation: glitch 3s 3s infinite;
-  }
+}
 
-
-  .glitch2 {
-    color: rgb(0, 0, 0);
+.glitch2 {
+    color: rgb(255, 0, 0);
     position: relative;
     font-size: 9vw;
-    // margin: 70px 200px;
     animation: glitch 2s 2s infinite;
-  }
-  
-  .glitch::before {
+}
+
+.glitch::before {
     content: attr(data-text);
     position: absolute;
     left: -2px;
-    text-shadow: -5px 0 rgb(0, 255, 0);
+    text-shadow: -5px 0 rgba(64, 87, 64, 0.947);
     background: transparent;
     overflow: hidden;
     top: 0;
     animation: noise-1 3s linear infinite alternate-reverse, glitch 5s 5.05s infinite;
-  }
-  
-  .glitch::after {
+}
+
+.glitch::after {
     content: attr(data-text);
     position: absolute;
     left: 2px;
-    text-shadow: -5px 0 rgb(255, 225, 0);
+    text-shadow: -5px 0 rgb(229, 228, 219);
     background: transparent;
     overflow: hidden;
     top: 0;
-    animation: noise-2 3s linear infinite alternate-reverse, glitch 5s 5s infinite;
-  }
-  
-  @keyframes glitch {
-    1%{
-      transform: rotateX(10deg) skewX(90deg);
+    animation: noise-2 3s linear infinite alternate-reverse, glitch 2s 3s infinite;
+}
+
+@keyframes glitch {
+    1% {
+        transform: rotateX(10deg) skewX(90deg);
     }
-    2%{
-      transform: rotateX(0deg) skewX(0deg);
+    2% {
+        transform: rotateX(0deg) skewX(0deg);
     }
-  }
-  
-  @keyframes noise-1 {
-    $steps: 20;
-    @for $i from 1 through $steps {
-      #{percentage($i*(1/$steps))} {
-        $top: random(100);
-        $bottom: random(101 - $top);
-        clip-path: inset(#{$top}px 0 #{$bottom}px 0);
-      }
+}
+
+@keyframes noise-1 {
+    0% {
+        clip-path: inset(0 0 100% 0);
     }
-  }
-  
-  @keyframes noise-2 {
-    $steps: 30;
-    @for $i from 0 through $steps {
-      #{percentage($i*(1/$steps))} {
-        $top: random(100);
-        $bottom: random(101 - $top);
-        clip-path: inset(#{$top}px 0 #{$bottom}px 0);
-      }
+    20% {
+        clip-path: inset(20% 0 80% 0);
     }
+    40% {
+        clip-path: inset(40% 0 60% 0);
+    }
+    60% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    80% {
+        clip-path: inset(80% 0 20% 0);
+    }
+    100% {
+        clip-path: inset(100% 0 0 0);
+    }
+}
+
+@keyframes noise-2 {
+    0% {
+        clip-path: inset(0 0 100% 0);
+    }
+    20% {
+        clip-path: inset(20% 0 80% 0);
+    }
+    40% {
+        clip-path: inset(40% 0 60% 0);
+    }
+    60% {
+        clip-path: inset(60% 0 40% 0);
+    }
+    80% {
+        clip-path: inset(80% 0 20% 0);
+    }
+    100% {
+        clip-path: inset(100% 0 0 0);
+    }
+}
+.scanlines {
+  position: relative; /* Ensure the pseudo-element is positioned relative to this container */
+  overflow: hidden;
+  mix-blend-mode: difference;
+}
+
+.scanlines::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 200%; /* Increase height to cover enough area for the animation */
+  top: 0;
+  left: 0;
+  background: repeating-linear-gradient(
+      to bottom,
+      rgb(255, 255, 255) 1px,
+      transparent 2px,
+      rgb(0, 0, 0) 3px,
+      transparent 4px
+  );
+  animation: scanline-move 40ms linear infinite; /* Speed up the animation for a more realistic effect */
+}
+
+@keyframes scanline-move {
+  from {
+      transform: translateY(0);
   }
-  
-  .scanlines {
+  to {
+      transform: translateY(-50%);
+  }
+}
+
+/* Carousel styles */
+.carousel-container {
+    width: 90%;
+    margin: auto;
     overflow: hidden;
-    mix-blend-mode: difference;
-  }
-  
-  .scanlines::before {
-    content: "";
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel .preview {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    box-sizing: border-box;
+    height: auto;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.carousel .preview:last-child {
+    margin-right: 0;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-button {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.scroll-button.left {
+    left: 0;
+}
+
+.scroll-button.right {
+    right: 0;
+}
+
+/* Lightbox styles */
+.lightbox {
+    display: none;
+    position: fixed;
     top: 0;
     left: 0;
-  
-    background: repeating-linear-gradient(
-      to bottom,
-      transparent 100%,
-      rgba(255, 255, 255, 0.05) .5%,
-      transparent 1%
-    );
-  
-    animation: fudge 7s ease-in-out alternate infinite;
-  }
-  
-  
-  @keyframes fudge {
-    from {
-      transform: translate(0px, 0px);
-    }
-    to {
-      transform: translate(0px, 2%);
-    }
-  }
-  
-  .glow {
-    @extend .glitch;
-    text-shadow: 0 0 1000px rgb(223, 191, 191);
-    color: transparent;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.lightbox .close {
     position: absolute;
-    top: 0;
-  }
-  
-  .subtitle {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 100;
-    font-size: .8vw;
-    color: rgba(165, 141, 141, .4);
-    text-transform: uppercase;
-    letter-spacing: 1em;
-    text-align: center;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Divider styles */
+.custom-shape-divider-bottom-1679921068 {
     position: absolute;
-    left: 17%;
-    animation: glitch-2 5s 5.02s infinite;
-  }
-  
-  @keyframes glitch-2 {
-    1%{
-      transform: rotateX(10deg) skewX(70deg);
-    }
-    2%{
-      transform: rotateX(0deg) skewX(0deg);
-    }
-  }
-  
-  
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1679921068 svg {
+    position: relative;
+    display: block;
+    width: calc(180% + 1.3px);
+    height: 123px;
+}
+
+.custom-shape-divider-bottom-1679921068 .shape-fill {
+    fill: #FFFFFF;
+}
+
+/* Side navigation styles */
+.side-nav {
+  color: transparent; /* Text color */
+  font-size: 30px; /* Adjust font size */
+  line-height: 1.5;
+  padding: 10px;
+  border-radius: 5px;
+  border: #010101;
+}
+
+.side-nav li {
+  color: white;
+  outline: #010101;
+  /* Apply text shadow to create an outline effect */
+  text-shadow: 
+      1px 1px 0 #51ff00, /* Shadow on the right */
+      -1px -1px 0 #f30000, /* Shadow on the left */
+      1px -1px 0 #0800ff, /* Shadow on the bottom */
+      -1px 1px 0 #f6ff00; /* Shadow on the top */
+      
+}
+/* Ensure the gallery is scrollable */
+.gallery {
+    display: flex;
+    overflow-x: scroll;
+    gap: 10px;
+    padding: 10px;
+}
+
+.gallery img {
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}

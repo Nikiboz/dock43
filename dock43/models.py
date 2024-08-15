@@ -16,3 +16,12 @@ class Post(db.Model):
     body = db.Column(db.Text, nullable=False)
     
     author = db.relationship('User', backref=db.backref('posts', lazy=True))
+
+
+class Photo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    photo_link = db.Column(db.String(255), nullable=False)
+    photo_text_body = db.Column(db.Text, nullable=True)  # Optional text description for the photo
+
+    def __repr__(self):
+        return f"Photo(id={self.id}, photo_link={self.photo_link})"

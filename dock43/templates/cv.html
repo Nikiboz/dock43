@@ -2,83 +2,22 @@
 
 {% block title %}Dock43 - CV{% endblock %}
 
-{% block category %}Curriculum Vitae{% endblock %}
+{% block category %}Work expirience/CV/RESUME{% endblock %}
 
 {% block content %}
-<style type="text/css">
-         body {
-          font-family: Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: transparent;
-            color: white;
-        }
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 
-        .scrollable-div {
-            width: 75%; /* Set a fixed width for the scrollable area */
-            height: 200px; /* Set a fixed height for the scrollable area */
-            overflow-y: scroll; /* Enable vertical scrolling */
-            overflow-x: hidden; /* Hide horizontal scrolling */
-            border: 1px solid #ccc; /* Optional: Add a border */
-            padding: 10px; /* Optional: Add padding */
-        }
-
-        .content-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 10px; /* Add space between paragraphs */
-        }
-
-        .content-item {
-            height: 200px; /* Match the height of the scrollable div */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            padding: 20px;
-            background:transparent;
-            border-radius: 10px;
-        }
-        h1, h2, h3, h4 {
-            margin: 0 0 10px;
-            padding: 0;
-            color: #030303;
-            text-shadow: 
-            -1px -1px 0 #ddd,  
-             1px -1px 0 #ddd,
-            -1px  1px 0 #ddd,
-             1px  1px 0 #ddd;
-    
-        }
-        .section {
-            margin-bottom: 20px;
-        }
-        .section ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .section ul li {
-            background: #1b1212;
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-</style>
-
-  <div class="container" class="glitch-container">
-    <img class="glitch2" style="float: right; margin-left: 2px; margin-block: 2px; max-width: 19%; height: auto;" src="/static/Face.png" alt="Mykyta Tkachuk" />
-    <h1>Mykyta Tkachuk</h1>
-    <!--<p><strong></strong> <a href="mailto:nick.tkachuk@gmail.com">Send Email</a></p>-->
-    <p><strong></strong> <a href="https://www.linkedin.com/in/mykyta-tkachuk-2596014">Open LinkedIn</a></p>
-    
-    <br />
-
+<div class="container">
+    <div class="header-content">
+       
+        <div class="text-content" style="text-align: left;">
+            <h1>Mykyta Tkachuk</h1>
+            <!--<p><strong></strong> <a href="mailto:nick.tkachuk@gmail.com">Send Email</a></p>-->
+            <p><strong></strong> <a href="https://www.linkedin.com/in/mykyta-tkachuk-2596014">Open LinkedIn</a></p>
+        </div>
+        <img class="scanlines glitch2 glow" src="/static/Face.png" alt="Ohai!" style="margin-left:auto; background: transparent;" />
+    </div>
+</div>
     <div class="section">
         <h2>Professional Summary</h2>
         <p>Proper introductions pending.</p>
@@ -103,88 +42,119 @@
                     <li>Conducted API, web, and mobile (iOS/Android) testing</li>
                     <li>Implemented Cypress automation for efficient testing</li>
                     <li>Developed test strategies and utilized GitHub Actions for seamless integration</li>
+                    <br>
                 </ul>
+                <br>
             </div>
             <div class="content-item">
+                
                 <h3>Senior QA Engineer</h3>
                 <h4>Zoolatech (Feb 2020 - Oct 2021)</h4>
                 <ul>
                     <li>Conducted API and mobile (iOS) testing</li>
                     <li>Utilized Ruby on Rails for efficient testing processes</li>
+                    <br>
                 </ul>
             </div>
+           
             <div class="content-item">
+                <br>
                 <h3>Senior QA Engineer</h3>
                 <h4>ORM\Ciklum (May 2019 - Feb 2020)</h4>
                 <ul>
                     <li>Executed various test types, including mobile (iOS/Android) and API testing</li>
                     <li>Managed development and delivery lifecycles</li>
                     <li>Conducted performance testing using JMeter/Blazemeter</li>
+                    <br>
                 </ul>
             </div>
+            <br>
             <div class="content-item">
+                <br>
                 <h3>Senior QA Engineer</h3>
                 <h4>Keypr\Intelity (Jan 2014 - Dec 2018)</h4>
                 <ul>
                     <li>Conducted various test types, including mobile (iOS/Android) and API testing</li>
                     <li>Managed development and delivery lifecycles</li>
                     <li>Created and maintained test documentation</li>
+                    <br>
                 </ul>
             </div>
+            <br>
             <div class="content-item">
+                <br>
                 <h3>Automation Engineer/Software Test Engineer</h3>
                 <h4>Persha Studia (Wargaming) (Oct 2013 - Nov 2014)</h4>
                 <ul>
                     <li>Conducted various test types and automated web portal tests using Selenium-based frameworks</li>
                     <li>Participated in the Scrum process and contributed to localization testing efforts</li>
+                    <br>
                 </ul>
             </div>
+            <br>
             <div class="content-item">
+                <br>
                 <h3>Software Test Engineer</h3>
                 <h4>Ciklum (Apr 2011 - Oct 2012)</h4>
                 <ul>
                     <li>Conducted Android app testing and created test plans and cases</li>
                     <li>Utilized the Monkey Runner framework for test automation</li>
+                    <br>
                 </ul>
             </div>
+            <br>
             <div class="content-item">
+                <br>
                 <h3>Software Test Engineer/Team Leader</h3>
                 <h4>Quest Software (Apr 2010 - Jan 2011)</h4>
                 <ul>
                     <li>Led test planning and execution efforts, including requirements analysis and test environment setup</li>
                     <li>Mentored junior team members and facilitated QA training</li>
+                    <br>
                 </ul>
             </div>
+            <br>
             <div class="content-item">
+                <br>
                 <h3>Automation Test Engineer</h3>
                 <h4>GlobalLogic (Nov 2009 - Apr 2010)</h4>
                 <ul>
                     <li>Conducted web application testing and automated test scripts using Selenium and Ruby with Cucumber extension</li>
                     <li>Participated in iteration planning and estimation processes</li>
+                    <br>
                 </ul>
             </div>
+            <br>
             <div class="content-item">
+                <br>
                 <h3>Software Test Engineer/Performance Test Engineer</h3>
                 <h4>GlobalLogic (Apr 2008 - May 2009)</h4>
                 <ul>
                     <li>Created product functional maps and conducted performance tests</li>
                     <li>Interacted directly with customers and provided comprehensive reporting</li>
+                    <br>
                 </ul>
             </div>
+            <br>
             <div class="content-item">
+                <br>
                 <h3>Software Quality Engineer</h3>
                 <h4>GlobalLogic (Apr 2006 - Apr 2008)</h4>
                 <ul>
                     <li>Conducted requirements analysis and executed test cases</li>
                     <li>Managed full-cycle bug management and regression testing efforts</li>
+                    <br>
                 </ul>
             </div>
+            <br>
             <div class="content-item">
+                <br>
                 <h3>System Administrator</h3>
                 <h4>Architectural Bureau “U.Lositsky” (May 2002 - Apr 2006)</h4>
                 <ul>
                     <li>Setup and maintenance of a small office company</li>
                     <li>Network configuration and maintenance</li>
+                    <br>
                 </ul>
             </div>
         </div>
